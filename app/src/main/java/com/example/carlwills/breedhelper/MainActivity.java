@@ -5,6 +5,7 @@ import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,19 +15,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOError;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public ArrayList<Pokemon> pokemonList;
+    private Pokemon thisPoke;
+    private ArrayList<String> arraySpinner;
 
-    private String[] arraySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +41,50 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Compile the list from the resource file
         Resources res = this.getResources();
         XmlResourceParser pokeXmlParser = res.getXml(R.xml.pokeres);
-        ParseData.parse(this);
+        pokemonList = ParseData.parse(this);
+        arraySpinner = new ArrayList <String>();
+        arraySpinner.add("Select a Pokemon First");
+
+        //Spinner
+        final Spinner spinner = (Spinner) findViewById(R.id.ability_spinner);
+        final ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter.setNotifyOnChange(true);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setSelection(0);
 
         //Autocomplete Text-view
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, Pokemon.NAMES);
         AutoCompleteTextView textView = (AutoCompleteTextView)
                 findViewById(R.id.wanted_name);
         textView.setAdapter(adapter);
 
-        //Spinner
-        NoDefaultSpinner spinner = (NoDefaultSpinner) findViewById(R.id.ability_spinner);
-        this.arraySpinner = new String [] {"1", "2", "3"};
-        ArrayAdapter<CharSequence> spinnerAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, arraySpinner);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(spinnerAdapter);
-        spinner.setSelection(0);
+
+        textView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                thisPoke = pokemonList.get(pokemonList.indexOf(new Pokemon(adapter.getItem(position))));
+                //spinnerAdapter.clear();
+                arraySpinner.clear();
+                arraySpinner.add(thisPoke.getAbility1());
+                if(thisPoke.getAbility2() == null){
+                    arraySpinner.add(thisPoke.getHiddenAbility());
+                } else {
+                    arraySpinner.add(thisPoke.getAbility2());
+                    arraySpinner.add(thisPoke.getHiddenAbility());
+                }
+                Log.d("Set Spinner", "Adding Items to Spinner! " + arraySpinner.toString());
+                spinner.setSelection(1);
+                Toast.makeText(MainActivity.this, thisPoke.getName() + " selected", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -4,21 +4,62 @@
         <pokemon>
             <name>Bulbasaur</name>
             <abilities>
-                <ability>Ability1</ability>
-                <hiddenAbility>Chloryphil</hiddenAbility>
+                <ability1>Overgrow</ability1>
+                <hiddenAbility>Chlorophyll</hiddenAbility>
             </abilities>
             <eggMovesLearn>
                 <move>EgLearn</move>
+                <move>EgLearn2</move>
             </eggMovesLearn>
             <eggMovesPass>
                 <move>EgPass</move>
+                <move>EgPass2</move>
             </eggMovesPass>
             <otherMoves>
                 <move>LvMove</move>
+                <move>LvMove2</move>
+                <move>LvMove3</move>
+            </otherMoves>
+        </pokemon>
+        <pokemon>
+            <name>Ivysaur</name>
+            <abilities>
+                <ability1>Overgrow</ability1>
+                <hiddenAbility>Chlorophyll</hiddenAbility>
+            </abilities>
+            <eggMovesLearn>
+                <move>EgLearn</move>
+                <move>EgLearn2</move>
+            </eggMovesLearn>
+            <eggMovesPass>
+                <move>EgPass</move>
+                <move>EgPass2</move>
+            </eggMovesPass>
+            <otherMoves>
+                <move>LvMove</move>
+                <move>LvMove2</move>
+                <move>LvMove3</move>
+            </otherMoves>
+        </pokemon>
+        <pokemon>
+            <name>Venusaur</name>
+            <abilities>
+                <ability1>Overgrow</ability1>
+                <hiddenAbility>Chlorophyll</hiddenAbility>
+            </abilities>
+            <eggMovesLearn>
+                <move>EgLearn</move>
+                <move>EgLearn2</move>
+            </eggMovesLearn>
+            <eggMovesPass>
+                <move>EgPass</move>
+                <move>EgPass2</move>
+            </eggMovesPass>
+            <otherMoves>
+                <move>LvMove</move>
+                <move>LvMove2</move>
+                <move>LvMove3</move>
             </otherMoves>
         </pokemon>
     </pokemons>
-
-
-
 </pokemons>

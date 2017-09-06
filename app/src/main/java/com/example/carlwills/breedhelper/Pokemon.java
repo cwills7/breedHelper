@@ -1,5 +1,10 @@
 package com.example.carlwills.breedhelper;
 
+import java.util.ArrayList;
+import java.util.function.Predicate;
+
+import static android.R.id.list;
+
 /**
  * Created by Carl.Wills on 9/1/2017.
  */
@@ -10,9 +15,9 @@ public class Pokemon {
     private String ability1;
     private String ability2;
     private String hiddenAbility;
-    private String [] eggMovesLearn;
-    private String [] eggMovesPass;
-    private String [] otherMoves;
+    private ArrayList <String> eggMovesLearn;
+    private ArrayList <String> eggMovesPass;
+    private ArrayList <String> otherMoves;
 
 
 
@@ -97,8 +102,89 @@ public class Pokemon {
 
 
     public Pokemon(){
+        eggMovesLearn = new ArrayList<String>();
+        eggMovesPass = new ArrayList<String>();
+        otherMoves = new ArrayList<String>();
+    }
+    public Pokemon(String name){
+        this.name = name;
+        eggMovesLearn = new ArrayList<String>();
+        eggMovesPass = new ArrayList<String>();
+        otherMoves = new ArrayList<String>();
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAbility1() {
+        return ability1;
+    }
+
+    public void setAbility1(String ability1) {
+        this.ability1 = ability1;
+    }
+
+    public String getAbility2() {
+        return ability2;
+    }
+
+    public void setAbility2(String ability2) {
+        this.ability2 = ability2;
+    }
+
+    public String getHiddenAbility() {
+        return hiddenAbility;
+    }
+
+    public void setHiddenAbility(String hiddenAbility) {
+        this.hiddenAbility = hiddenAbility;
+    }
+
+    public ArrayList<String> getEggMovesLearn() {
+        return eggMovesLearn;
+    }
+
+    public void setEggMovesLearn(ArrayList <String> eggMovesLearn) {
+        this.eggMovesLearn = eggMovesLearn;
+    }
+
+    public ArrayList <String> getEggMovesPass() {
+        return eggMovesPass;
+    }
+
+    public void setEggMovesPass(ArrayList <String> eggMovesPass) {
+        this.eggMovesPass = eggMovesPass;
+    }
+
+    public ArrayList <String> getOtherMoves() {
+        return otherMoves;
+    }
+
+    public void setOtherMoves(ArrayList <String> otherMoves) {
+        this.otherMoves = otherMoves;
+    }
+
+    @Override
+    public boolean equals(Object pk2){
+        return this.getName().equals(((Pokemon) pk2).getName());
     }
 
 
+    @Override
+    public String toString(){
+        return  "|-------------------\n"+
+                "|Pokemon: " + this.getName() + "\n" +
+                "|Ability1: " + this.getAbility1() + "\n" +
+                "|Ability2: " + this.getAbility2() + "\n" +
+                "|HiddenAbility: "  + this.getHiddenAbility() + "\n" +
+                "|EggMovesLearn: " + this.getEggMovesLearn().toString() + "\n" +
+                "|EggMovesPass: " + this.getEggMovesPass().toString() + "\n" +
+                "|OtherMoves: " + this.getOtherMoves().toString() + "\n" +
+                "|--------------------";
+    }
 }
