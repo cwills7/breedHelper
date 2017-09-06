@@ -61,5 +61,81 @@
                 <move>LvMove3</move>
             </otherMoves>
         </pokemon>
+        <pokemon>
+            <name>Charmander</name>
+            <abilities>
+                <ability1>Blaze</ability1>
+                <hiddenAbility>Solar Power</hiddenAbility>
+            </abilities>
+            <eggMovesLearn>
+                <move>EgLearn</move>
+                <move>EgLearn2</move>
+            </eggMovesLearn>
+            <eggMovesPass>
+                <move>EgPass</move>
+                <move>EgPass2</move>
+            </eggMovesPass>
+            <otherMoves>
+                <move>LvMove</move>
+                <move>LvMove2</move>
+                <move>LvMove3</move>
+            </otherMoves>
+        </pokemon>
+        <pokemon>
+            <name>Charmeleon</name>
+            <abilities>
+                <ability1>Blaze</ability1>
+                <hiddenAbility>Solar Power</hiddenAbility>
+            </abilities>
+            <eggMovesLearn>
+                <move>EgLearn</move>
+                <move>EgLearn2</move>
+            </eggMovesLearn>
+            <eggMovesPass>
+                <move>EgPass</move>
+                <move>EgPass2</move>
+            </eggMovesPass>
+            <otherMoves>
+                <move>LvMove</move>
+                <move>LvMove2</move>
+                <move>LvMove3</move>
+            </otherMoves>
+        </pokemon>
+        <pokemon>
+            <name>Charmizard</name>
+            <abilities>
+                <ability1>Blaze</ability1>
+                <hiddenAbility>Solar Power</hiddenAbility>
+            </abilities>
+            <eggMovesLearn>
+                <move>EgLearn</move>
+                <move>EgLearn2</move>
+            </eggMovesLearn>
+            <eggMovesPass>
+                <move>EgPass</move>
+                <move>EgPass2</move>
+            </eggMovesPass>
+            <otherMoves>
+                <move>Wing Attack</move>
+                <move>Flare Blitz</move>
+                <move>Heat Wave</move>
+                <move>Dragon Claw</move>
+                <move>Shadow Claw</move>
+                <move>Air Slash</move>
+                <move>Slash</move>
+                <move>Growl</move>
+                <move>Ember</move>
+                <move>Smokescreen</move>
+                <move>Dragon Rage</move>
+                <move>Scary Face</move>
+                <move>Fire Fang</move>
+                <move>Flame Burst</move>
+                <move>Slash</move>
+                <move>Flamethrower</move>
+                <move>Fire Spin</move>
+                <move>Inferno</move>
+            </otherMoves>
+        </pokemon>
+
     </pokemons>
 </pokemons>
